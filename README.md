@@ -10,6 +10,8 @@ I was also able to produce this behaviour with https://github.com/zeit/next.js a
 
 ## Steps to reproduce
 
+### CRA
+
 ```bash
 $ vc # link to a project
 $ vc env add REACT_APP_DEMO development < demo.json
@@ -20,3 +22,11 @@ I've added 2 examples of what this behaviour might result in:
 
 1. I'm trying to parse the `REACT_APP_DEMO` environment variable in `App.js` which fails.
 2. I'm rendering the `REACT_APP_DEMO` environment variable in `App.js` which displays multiple `\`.
+
+### dotenv
+
+```bash
+$ node -r dotenv/config -e "JSON.parse(process.env.REACT_APP_DEMO)"
+```
+
+Running this will show the error.
